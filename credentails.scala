@@ -1,11 +1,14 @@
 import scala.util.{Failure, Success, Try}
 
 Try {
+  import org.apache.spark._
   import com.github.music.of.the.ainur.almaren.builder.Core.Implicit
   import com.github.music.of.the.ainur.almaren.Almaren
   import com.modak.common.credential.Credential
   import com.modak.common._
-
+  
+  val sparkConf = new SparkConf().setAppName("credentials")
+  val spark = new SparkContext(sparkConf)
   //val args = sc.getConf.get("spark.driver.args").split("\\s+")
   val args = spark.conf.get("spark.driver.args").split(",")
   val token = spark.conf.get("spark.nabu.token")
