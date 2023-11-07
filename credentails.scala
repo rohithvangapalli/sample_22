@@ -7,11 +7,11 @@ Try {
   import com.modak.common._
 
   //val args = sc.getConf.get("spark.driver.args").split("\\s+")
-  val args = sc.getConf.get("spark.driver.args").split(",")
-  val token = sc.getConf.get("spark.nabu.token")
+  val args = spark.conf.get("spark.driver.args").split(",")
+  val token = spark.conf.get("spark.nabu.token")
   val cred_id = args(0).toInt
   val cred_type = args(1).toInt
-  val endpoint = sc.getConf.get("spark.nabu.fireshots_url")
+  val endpoint = spark.conf.get("spark.nabu.fireshots_url")
 
   val CredentialResult = Credential.getCredentialData(CredentialPayload(s"$token", cred_id, cred_type, s"$endpoint"))
 
