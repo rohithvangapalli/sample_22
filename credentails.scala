@@ -7,7 +7,7 @@ Try {
   import com.modak.common._
 
   //val args = sc.getConf.get("spark.driver.args").split("\\s+")
-  val args = spark.sparkContext.getConf.get("spark.driver.args").split(",")
+  val args = sc.getConf.get("spark.driver.args").split(",")
   val token = sc.getConf.get("spark.nabu.token")
   val cred_id = args(0).toInt
   val cred_type = args(1).toInt
