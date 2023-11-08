@@ -31,7 +31,7 @@ if __name__ == "__main__":
     
     dev_cred_id = 1
     dev_cred_type = 1
-    print(dev_cred_id,dev_cred_type, args[0], args[1] )
+    print(dev_cred_id,dev_cred_type)
 
     dev_creds = get_password(token, dev_cred_id, dev_cred_type, fireshots_uri)
     print(dev_creds)
