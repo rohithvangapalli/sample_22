@@ -9,9 +9,6 @@ Try {
   import com.modak.common._
 
   val spark = SparkSession.builder.appName("credentials").getOrCreate()
-  // val sparkConf = new SparkConf().setAppName("credentials")
-  // val spark = new SparkContext(sparkConf)
-  //val args = sc.getConf.get("spark.driver.args").split("\\s+")
   val args = spark.conf.get("spark.driver.args").split(",")
   val token = spark.conf.get("spark.nabu.token")
   val cred_id = args(0).toInt
