@@ -24,7 +24,8 @@ def get_password(token, cred_id, cred_type, fireshots_url):
 
 
 if __name__ == "__main__":
-    args = spark.conf.get("spark.driver.args").split(",")
+    #args = spark.conf.get("spark.driver.args").split(",")
+    args = spark.conf.get("spark.driver.args").split("\\s+")
     token = spark.conf.get("spark.nabu.token")
     fireshots_uri = spark.conf.get("spark.nabu.fireshots_url")
     
