@@ -25,12 +25,12 @@ def get_password(token, cred_id, cred_type, fireshots_url):
 
 if __name__ == "__main__":
     #args = spark.conf.get("spark.driver.args").split(",")
-    args = spark.conf.get("spark.driver.args").split("\\s+")
+    #args = spark.conf.get("spark.driver.args").split("\\s+")
     token = spark.conf.get("spark.nabu.token")
     fireshots_uri = spark.conf.get("spark.nabu.fireshots_url")
     
-    dev_cred_id = int(args[0]) #730
-    dev_cred_type = int(args[1]) #1
+    dev_cred_id = 1
+    dev_cred_type = 1
     print(dev_cred_id,dev_cred_type, args[0], args[1] )
 
     dev_creds = get_password(token, dev_cred_id, dev_cred_type, fireshots_uri)
