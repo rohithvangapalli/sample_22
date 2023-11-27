@@ -33,26 +33,4 @@ df = df.withColumn("phenotype", callUDF("get_file_name", input_file_name()))
 
 df = df.withColumn("icd10", callUDF("get_icd10", input_file_name()))
 
-val quenyaDsl = QuenyaDSL
-val dsl = quenyaDsl.compile("""
-|icd10$icd10:StringType
-|phenotype$phenotype:StringType
-|chrom$chrom:StringType
-|pos$pos:LongType
-|ref$ref:StringType
-|alt$alt:StringType
-|pval$pval:FloatType
-|maf$maf:FloatType
-|af$af:FloatType
-|ac$ac:FloatType
-|beta$beta:FloatType
-|sebeta$sebeta:FloatType
-|or$o_r:FloatType
-|num_samples$num_samples:IntegerType
-|num_controls$num_controls:IntegerType
-|num_cases$num_cases:IntegerType""".stripMargin) // generate a schema
-
-val finalDf:DataFrame = quenyaDsl.execute(dsl,df)
-finalDf.printSchema()
-finalDf.show(false)
-println(finalDf.count())
+df.show(false)
