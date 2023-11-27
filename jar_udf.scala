@@ -9,7 +9,7 @@ var df = spark.read
   .option("inferSchema", "false")
   .option("delimiter", "\t")
   .option("comment", "#")
-  .load("s3a://gratis-bucket-test/mt4002_testing/sample.gz")
+  .load("s3://gratis-bucket-test/mt4002_testing/sample.gz")
  
 df = DataFrameProcessor.processDataFrame(df)
  
