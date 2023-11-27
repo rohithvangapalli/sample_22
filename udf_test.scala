@@ -5,8 +5,8 @@ import org.apache.spark.sql.functions._
 
 val spark: SparkSession = SparkSession.builder().appName("AlmarenEMR").enableHiveSupport().getOrCreate()
 val args = spark.sparkContext.getConf.get("spark.driver.args").split(",")
-val environment = args(0)
-val src_path = args(1) // "data/unstructured/rsa/test/2023-11-22/EMR_test/"
+val environment = "dev"
+val src_path = "sample" // "data/unstructured/rsa/test/2023-11-22/EMR_test/"
 
 var df = spark.read.format("csv").option("header", "true").option("inferSchema", "false").option("delimiter", "\t").option("comment", "#").load("s3a://gratis-bucket-test/mt4002_testing/sample.gz") // reads .gz files by excluding lines starting with #
 
