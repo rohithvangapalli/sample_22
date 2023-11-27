@@ -32,4 +32,4 @@ spark.udf.register("get_file_name", (path: String) => URLDecoder.decode(path, "u
 
 // df = df.withColumn("icd10", callUDF("get_icd10", input_file_name()))
 
-// df.show(false)
+ df.show(false)
