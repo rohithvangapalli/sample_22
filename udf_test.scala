@@ -28,8 +28,8 @@ phenotype_to_icd10(phenotype)
 
 spark.udf.register("get_file_name", (path: String) => URLDecoder.decode(path, "utf-8").split("/").last.split("\\.").head.replaceAll("_pval", ""))
 
-// df = df.withColumn("phenotype", callUDF("get_file_name", input_file_name()))
+df = df.withColumn("phenotype", callUDF("get_file_name", input_file_name()))
 
-// df = df.withColumn("icd10", callUDF("get_icd10", input_file_name()))
+df = df.withColumn("icd10", callUDF("get_icd10", input_file_name()))
 
  df.show(false)
